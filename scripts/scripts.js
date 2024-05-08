@@ -1,28 +1,30 @@
 //move on mouse move.
 //get all elements of class
 function yogagirlmove() {
-    var yogagirl = document.querySelectorAll(".yogagirl");
-    var yogagirlbackgr = document.querySelectorAll(".yogagirlbackgr");
-    yogagirlbackgr.forEach(function (imgToMove) {
-        imgmove(imgToMove, 0.3);
-    });
-    yogagirl.forEach(function (imgToMove) {
-        imgmove(imgToMove, 0.15);
-    });
-    function imgmove(imgToMove, moveSpeed) {
-        let x =
-            imgToMove.getBoundingClientRect().left + imgToMove.clientWidth / 2;
-        let y =
-            imgToMove.getBoundingClientRect().top + imgToMove.clientHeight / 2;
-        let percentsOfX = ((event.pageX - x) / 100) * moveSpeed;
-        let percentsOfY = ((event.pageY - y) / 100) * moveSpeed;
-        imgToMove.style.transform =
-            "translate(" + percentsOfX + "%, " + percentsOfY + "%)";
+    if (window.innerWidth >= 600) {
+        var yogagirl = document.querySelectorAll(".yogagirl");
+        var yogagirlbackgr = document.querySelectorAll(".yogagirlbackgr");
+        yogagirlbackgr.forEach(function (imgToMove) {
+            imgmove(imgToMove, 0.3);
+        });
+        yogagirl.forEach(function (imgToMove) {
+            imgmove(imgToMove, 0.15);
+        });
+        function imgmove(imgToMove, moveSpeed) {
+            let x =
+                imgToMove.getBoundingClientRect().left +
+                imgToMove.clientWidth / 2;
+            let y =
+                imgToMove.getBoundingClientRect().top +
+                imgToMove.clientHeight / 2;
+            let percentsOfX = ((event.pageX - x) / 100) * moveSpeed;
+            let percentsOfY = ((event.pageY - y) / 100) * moveSpeed;
+            imgToMove.style.transform =
+                "translate(" + percentsOfX + "%, " + percentsOfY + "%)";
+        }
     }
 }
-if (window.innerWidth >= 600) {
-    document.querySelector("body").addEventListener("mousemove", yogagirlmove);
-}
+document.querySelector("body").addEventListener("mousemove", yogagirlmove);
 //parallax
 window.addEventListener("scroll", function () {
     var value = window.scrollY;

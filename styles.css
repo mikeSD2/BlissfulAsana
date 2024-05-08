@@ -585,6 +585,7 @@ body > img {
     margin-top: 12vw;
 }
 .footer-section {
+    margin-top: -1px;
     width: 100%;
     background-color: #6c368c;
 }
