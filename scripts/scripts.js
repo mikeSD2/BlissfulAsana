@@ -1,6 +1,5 @@
 //move on mouse move.
 //get all elements of class
-document.querySelector("body").addEventListener("mousemove", yogagirlmove);
 function yogagirlmove() {
     var yogagirl = document.querySelectorAll(".yogagirl");
     var yogagirlbackgr = document.querySelectorAll(".yogagirlbackgr");
@@ -20,6 +19,9 @@ function yogagirlmove() {
         imgToMove.style.transform =
             "translate(" + percentsOfX + "%, " + percentsOfY + "%)";
     }
+}
+if (window.innerWidth >= 600) {
+    document.querySelector("body").addEventListener("mousemove", yogagirlmove);
 }
 //parallax
 window.addEventListener("scroll", function () {
